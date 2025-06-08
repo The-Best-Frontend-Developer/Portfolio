@@ -19,6 +19,19 @@ export const metadata: Metadata = {
     icons: {
         icon: '/favicon.svg',
     },
+    openGraph: {
+        title: 'Портфолио Frontend разработчика',
+        description: 'Караваев Кирилл владеет полным стеком технологий для написания качественных интерфейсов',
+        url: 'https://frontend-developer-portfolio-2010.vercel.app',
+        images: [
+            {
+                url: 'https://frontend-developer-portfolio-2010.vercel.app/preview-photo.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Фото превью',
+            }
+        ]
+    }
 };
 
 export default function RootLayout({

@@ -37,9 +37,9 @@ const ElectricityAnimation = () => {
     }, []);
 
     return (
-        <div className={`absolute flex customContainer -z-10 1440:ml-[calc((100vw_-_1440_-_clamp(0.9375rem,_-0.3783rem_+_7.0175vw,_5.9375rem))_/_2)] -ml-[clamp(0.9375rem,_-0.3783rem_+_7.0175vw,_5.9375rem)] max-h-fit w-fit bottom-0 left-0 right-0 pointer-events-none ${isShow ? 'dash' : ''}`} ref={elementRef}>
+        <div className={`absolute flex customContainer max-w-[100vw] overflow-x-clip -z-10 bottom-0 left-1/2 transform -translate-y-1/2 lg:translate-y-0 -translate-x-1/2 pointer-events-none max-h-fit w-fit ${isShow ? 'dash' : ''}`} ref={elementRef}>
             <div className="absolute left-0 h-full 1440:w-[2px] bg-accent neoMiniShadow"></div>
-            <svg className="w-[100vw] 1440:w-fit 1440:h-[min(320px,_50vh)]" viewBox="-100 -2 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-[110vw] md:w-[min(100vw,_1440px)]" viewBox="-100 -2 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M-100 300 H93 V0 H1163 V230 H1340"
                     stroke="var(--color-light-background)"

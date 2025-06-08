@@ -17,7 +17,7 @@ const Technology = ({technology}: {technology: Technology}) => {
     const [dimension, setDimension] = useState(0);
 
     useEffect(() => {
-        const base = size === 'big' ? 100 : 70;
+        const base = size === 'big' ? 100 : 80;
 
         const updateDimension = () => {
             const width = window.innerWidth;
@@ -51,7 +51,7 @@ const Technology = ({technology}: {technology: Technology}) => {
                 style={{ transformStyle: 'preserve-3d' }}
             >
                 <div
-                    className={`absolute inset-0 flex items-center p-3 md:p-4 ${size === "big" ? 'neoShadow text-headline' : 'neoMiniShadow text-normal'} justify-center bg-text rounded-full`}
+                    className={`absolute inset-0 flex items-center p-2 md:p-4 ${size === "big" ? 'neoShadow text-headline' : 'neoMiniShadow text-normal'} justify-center bg-text rounded-full`}
                     style={{ backfaceVisibility: 'hidden' }}
                 >
                     {hasError ? (
