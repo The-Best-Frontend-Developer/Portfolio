@@ -1,0 +1,36 @@
+@keyframes electricity {
+    0% {
+        stroke-dashoffset: 3040;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes reserve-electricity {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 3040;
+    }
+}
+
+.dash {
+    stroke-dasharray: 40 3000;
+    animation: electricity 4s linear infinite;
+}
+
+.secondDash {
+    stroke-dasharray: 40 3000;
+    animation: electricity 5s linear infinite;
+}
+
+.reserveDash {
+    stroke-dasharray: 40 3000;
+    animation: reserve-electricity 3s linear infinite;
+}
+
+.wireShadow {
+    filter: drop-shadow(0 0 10px #e3fffa);
+}

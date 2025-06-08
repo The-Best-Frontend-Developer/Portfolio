@@ -1,2 +1,93 @@
 @import "tailwindcss";
 
+:root {
+    --text-mini-size: 14px;
+    --text-normal-size: 16px;
+    --text-headline-size: 22px;
+    --text-big-size: 24px;
+
+    /*@media (min-width: 640px) {*/
+    /*    --text-mini-size: 14px;*/
+    /*    --text-normal-size: 16px;*/
+    /*    --text-headline-size: 20px;*/
+    /*    --text-big-size: 24px;*/
+    /*}*/
+
+    @media (min-width: 768px) {
+        --text-mini-size: 16px;
+        --text-normal-size: 18px;
+        --text-headline-size: 24px;
+        --text-big-size: 28px;
+    }
+
+    @media (min-width: 1024px) {
+        --text-mini-size: 18px;
+        --text-normal-size: 22px;
+        --text-headline-size: 32px;
+        --text-big-size: 40px;
+    }
+}
+
+@theme {
+    --color-background: #0D0D0D;
+    --color-light-background: #1A1A1A;
+    --color-accent: #00FFD1;
+    --color-dark-accent: #009682;
+    --color-darkest-accent: #004239;
+    --color-text: #EAEAEA;
+
+    --text-mini: var(--text-mini-size);
+    --text-normal: var(--text-normal-size);
+    --text-headline: var(--text-headline-size);
+    --text-big: var(--text-big-size);
+
+    --radius-big: 30px;
+    --radius-normal: 20px;
+    --radius-mini: 15px;
+
+    --font-main: var(--font-neucha);
+    --font-second: var(--font-geist-mono);
+
+    --breakpoint-1440: 1440px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-style: italic;
+    font-size: var(--text-headline);
+}
+
+p {
+    font-size: var(--text-normal);
+}
+
+.bottom-shadow {
+    box-shadow: 0 0 10px var(--color-accent);
+
+    @media (min-width: 768px) {
+        box-shadow: 0 0 20px var(--color-accent);
+    }
+}
+
+.neoShadow {
+    box-shadow: 0 0 10px var(--color-dark-accent), inset 0 0 10px var(--color-dark-accent);
+
+    @media (min-width: 768px) {
+        box-shadow: 0 0 20px var(--color-dark-accent), inset 0 0 20px var(--color-dark-accent);
+    }
+}
+
+.neoMiniShadow {
+    box-shadow: 0 0 5px var(--color-dark-accent), inset 0 0 5px var(--color-dark-accent);
+
+    @media (min-width: 768px) {
+        box-shadow: 0 0 10px var(--color-dark-accent), inset 0 0 10px var(--color-dark-accent);
+    }
+}
