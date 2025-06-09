@@ -34,9 +34,9 @@ const Technology = ({technology, highlighted}: {technology: Technology, highligh
             if (width >= 1024) {
                 setDimension(base)
             } else if (width >= 768) {
-                setDimension(base + 10); // md
+                setDimension(base + 10);
             } else {
-                setDimension(base - 30); // sm и ниже
+                setDimension(base - 30);
             }
         };
 

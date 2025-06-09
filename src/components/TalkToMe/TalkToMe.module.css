@@ -1,0 +1,25 @@
+.customFill::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--line-color, #000); /* можешь заменить на нужный цвет */
+    z-index: 10;
+    transition: height 0.15s ease;
+}
+
+.hovered::before {
+    box-shadow: 0 0 10px 3px var(--line-color, var(--color-dark-accent));
+    height: 100%;
+}
+
+.neoShadow {
+    box-shadow: 0 0 10px 5px var(--line-color, var(--color-dark-accent));
+
+    @media (min-width: 768px) {
+        box-shadow: 0 0 20px 5px var(--line-color, var(--color-dark-accent));
+    }
+}

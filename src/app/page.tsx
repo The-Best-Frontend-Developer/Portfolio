@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import WhoAmI from "@/components/WhoAmI/WhoAmI";
 import About from "@/components/About/About";
 import Websites from "@/components/Websites/Websites";
+import TalkToMeWrapper from "@/components/TalkToMe/TalkToMeWrapper";
 
 const Page = () => {
     return (
@@ -12,6 +13,7 @@ const Page = () => {
                 <WhoAmI/>
                 <About/>
                 <Websites/>
+                <TalkToMeWrapper/>
             </div>
         </div>
     );

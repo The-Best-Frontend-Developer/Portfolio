@@ -3,7 +3,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import TypingText from "@/components/ui/TypingText";
 import Image from 'next/image'
-import me from './me.jpg'
+import me from './me.png'
 
 const WhoAmI = () => {
     const [showCursor, setShowCursor] = useState(true)
@@ -47,7 +47,7 @@ const WhoAmI = () => {
 
     return (
         <div className="flex flex-col sm:flex-row py-5 md:py-15 gap-10 lg:gap-22">
-            <div className="self-center neoShadow w-[min(100%,_200px)] sm:w-[200px] lg:w-[320px] rounded-big">
+            <div className="self-center neoShadow w-[min(100%,_200px)] sm:w-[200px] lg:w-[320px] rounded-big p-1">
                 <Image
                     className="w-full rounded-big"
                     src={me}
