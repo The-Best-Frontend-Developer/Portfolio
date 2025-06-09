@@ -94,9 +94,9 @@ const Websites = () => {
     }, [currentIndex, websiteCards])
 
     return (
-        <div
+        <div id="sites"
             className="flex justify-between w-full rounded-big p-2 flex-col-reverse items-center lg:items-start lg:flex-row lg:h-[450px] bg-light-background my-10">
-            <div className="flex flex-col h-full justify-between px-5 gap-5 w-full">
+            <div className="flex flex-col justify-between px-5 gap-5 min-h-[270px] w-full">
                 <div className={`flex flex-col gap-1 duration-200 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
                     <h2 className="self-center !text-headline mb-1">{currentWebsite.name}</h2>
                     <p className="sm:max-w-[60%] lg:max-w-full">Описание: {currentWebsite.description}</p>
@@ -131,26 +131,22 @@ const Websites = () => {
                 </div>
                 <div className="flex justify-between text-mini md:text-normal w-[80%] lg:w-full self-center">
                     <button
-                        className={`flex gap-2 ${currentIndex > 0 ? 'text-accent cursor-pointer' : 'text-darkest-accent'}`}
+                        className={`flex items-center ${currentIndex > 0 ? 'text-accent cursor-pointer' : 'text-darkest-accent'}`}
                         onClick={previousSlide}>
-                        <span className="inline-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
                                  strokeLinejoin="round"><path
                                 d="M6 8L2 12L6 16"/><path d="M2 12H22"/></svg>
                             &nbsp;Предыдущий
-                        </span>
                     </button>
                     <button
-                        className={`flex gap-2 ${currentIndex < websiteCards.length - 1 ? 'text-accent cursor-pointer' : 'text-darkest-accent'}`}
-                        onClick={nextSlide}>
-                        <span className="inline-flex">Следующий&nbsp;
+                        className={`flex items-center ${currentIndex < websiteCards.length - 1 ? 'text-accent cursor-pointer' : 'text-darkest-accent'}`}
+                        onClick={nextSlide}>Следующий&nbsp;
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                                  strokeLinecap="round" strokeLinejoin="round"><path
                                 d="M18 8L22 12L18 16"/><path d="M2 12H22"/>
                             </svg>
-                        </span>
                     </button>
                 </div>
             </div>
