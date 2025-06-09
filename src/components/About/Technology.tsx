@@ -11,10 +11,19 @@ type Technology = {
     src: StaticImageData;
 };
 
-const Technology = ({technology}: {technology: Technology}) => {
+const Technology = ({technology, highlighted}: {technology: Technology, highlighted?: number | undefined}) => {
     const {name, size, src} = technology
     const [hasError, setHasError] = useState(false);
     const [dimension, setDimension] = useState(0);
+    const [isHighlighted, setIsHighlighted] = useState(false)
+
+    useEffect(() => {
+        if (highlighted) {
+            setIsHighlighted(technology.id - 1 === highlighted)
+        } else {
+            setIsHighlighted(false)
+        }
+    }, [highlighted, technology.id]);
 
     useEffect(() => {
         const base = size === 'big' ? 100 : 80;
@@ -27,7 +36,7 @@ const Technology = ({technology}: {technology: Technology}) => {
             } else if (width >= 768) {
                 setDimension(base + 10); // md
             } else {
-                setDimension(base - 40); // sm и ниже
+                setDimension(base - 30); // sm и ниже
             }
         };
 
@@ -39,7 +48,7 @@ const Technology = ({technology}: {technology: Technology}) => {
 
     return (
         <div
-            className={`relative rounded-full cursor-pointer group`}
+            className={`relative rounded-full cursor-pointer group min-w-5`}
             style={{
                 width: dimension + 10,
                 height: dimension + 10,
@@ -47,11 +56,11 @@ const Technology = ({technology}: {technology: Technology}) => {
             }}
         >
             <div
-                className="absolute inset-0 transition-transform rounded-full duration-500 group-hover:scale-110 transform-style-preserve-3d group-hover:rotate-y-180"
+                className={`absolute inset-0 transition-transform rounded-full duration-500 group-hover:scale-110 transform-style-preserve-3d ${isHighlighted ? '-rotate-y-180' : ''} group-hover:-rotate-y-180`}
                 style={{ transformStyle: 'preserve-3d' }}
             >
                 <div
-                    className={`absolute inset-0 flex items-center p-2 md:p-4 ${size === "big" ? 'neoShadow text-headline' : 'neoMiniShadow text-normal'} justify-center bg-text rounded-full`}
+                    className={`absolute inset-0 flex items-center p-2 md:p-4 ${size === "big" ? 'neoShadow' : 'neoMiniShadow'} justify-center bg-text rounded-full`}
                     style={{ backfaceVisibility: 'hidden' }}
                 >
                     {hasError ? (
@@ -71,10 +80,10 @@ const Technology = ({technology}: {technology: Technology}) => {
                 </div>
 
                 <div
-                    className={`absolute inset-0 flex items-center ${size === "big" ? 'neoShadow text-headline' : 'neoMiniShadow text-normal'} justify-center bg-dark-accent text-bg text-center px-2 rounded-full`}
+                    className={`absolute inset-0 flex items-center ${size === "big" ? 'neoShadow' : 'neoMiniShadow'} text-normal justify-center bg-dark-accent text-bg text-center px-2 rounded-full`}
                     style={{
                         backfaceVisibility: 'hidden',
-                        transform: 'rotateY(-180deg)'
+                        transform: 'rotateY(180deg)'
                     }}
                 >
                     {name}

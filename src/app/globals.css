@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-    --text-mini-size: 14px;
-    --text-normal-size: 16px;
+    --text-mini-size: 12px;
+    --text-normal-size: 14px;
     --text-headline-size: 22px;
     --text-big-size: 24px;
 

@@ -3,7 +3,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import TypingText from "@/components/ui/TypingText";
 import Image from 'next/image'
-import me from './me.png'
+import me from './me.jpg'
 
 const WhoAmI = () => {
     const [showCursor, setShowCursor] = useState(true)
@@ -54,10 +54,11 @@ const WhoAmI = () => {
                     alt="портрет"
                     width={250}
                     height={300}
+                    priority={true}
                 />
             </div>
             <div className="flex flex-col gap-5 justify-between min-h-[260px] sm:min-h-[190px] h-full flex-1" ref={targetRef}>
-                <div className="flex flex-col py-5 px-9 neoShadow rounded-big font-second text-mini">
+                <div className="flex flex-col py-5 px-9 neoShadow rounded-big font-second min-h-16 text-mini">
                     {canStart &&
                         <>
                             <div className="flex gap-3 md:gap-7">
