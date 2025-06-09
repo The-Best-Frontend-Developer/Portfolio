@@ -37,7 +37,7 @@ const TypingText = ({text, speed = 80, cursor = false, delay = 0, setTypingTextD
                     clearInterval(typingInterval);
                     typingDoneTimeout = setTimeout(() => {
                         setIsTypingDone(true);
-                    }, 500)
+                    }, 200)
                 }
             }, speed);
         }, delay);

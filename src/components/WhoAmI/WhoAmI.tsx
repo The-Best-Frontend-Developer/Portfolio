@@ -40,7 +40,7 @@ const WhoAmI = () => {
         const timeout = setTimeout(() => {
             setShowCursor(false);
             setShowSecondCursor(true);
-        }, 1000);
+        }, 300);
 
         return () => clearTimeout(timeout);
     }, [typingGreetingDone]);
@@ -67,7 +67,7 @@ const WhoAmI = () => {
                                     <TypingText
                                         text='console.log(greeting)'
                                         delay={500}
-                                        speed={20}
+                                        speed={10}
                                         setTypingTextDone={setTypingGreetingDone}
                                         cursor={showCursor}
                                     />
@@ -78,8 +78,8 @@ const WhoAmI = () => {
                                 <div className="text-dark-accent">
                                     <TypingText
                                         text='console.log(aboutMe)'
-                                        speed={20}
-                                        delay={5000}
+                                        speed={10}
+                                        delay={3500}
                                         setTypingTextDone={setTypingAboutDone}
                                         cursor={showSecondCursor}
                                     />
@@ -96,7 +96,7 @@ const WhoAmI = () => {
                             <TypingText
                                 text='Привет! Рад тебя видеть здесь'
                                 delay={1000}
-                                speed={20}
+                                speed={15}
                             />
                         </span>
                         }
@@ -106,7 +106,7 @@ const WhoAmI = () => {
                             <TypingText
                                 text='Создаю интерфейсы, которые хочется трогать глазами 👀'
                                 delay={1000}
-                                speed={20}
+                                speed={15}
                             />
                         </span>
                         }

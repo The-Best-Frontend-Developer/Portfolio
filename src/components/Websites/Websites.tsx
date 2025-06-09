@@ -71,20 +71,22 @@ const Websites = () => {
 
         setTimeout(() => {
             setIsFading(false)
-            setCurrentIndex(index)
+            if (index > websiteCards.length - 1) {
+                setCurrentIndex(0)
+            } else if (index < 0) {
+                setCurrentIndex(websiteCards.length - 1)
+            } else {
+                setCurrentIndex(index)
+            }
         }, 200)
     }
 
     function nextSlide() {
-        if (currentIndex < websiteCards.length - 1) {
-            toSlide(currentIndex + 1)
-        }
+        toSlide(currentIndex + 1)
     }
 
     function previousSlide() {
-        if (currentIndex > 0) {
-            toSlide(currentIndex - 1)
-        }
+        toSlide(currentIndex - 1)
     }
 
     const [currentWebsite, setCurrentWebsite] = useState(websiteCards[currentIndex])
@@ -94,84 +96,92 @@ const Websites = () => {
     }, [currentIndex, websiteCards])
 
     return (
-        <div id="sites"
-            className="flex justify-between w-full rounded-big p-2 flex-col-reverse items-center lg:items-start lg:flex-row lg:h-[450px] bg-light-background my-10">
-            <div className="flex flex-col justify-between px-5 gap-5 min-h-[270px] w-full">
-                <div className={`flex flex-col gap-1 duration-200 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
-                    <h2 className="self-center !text-headline mb-1">{currentWebsite.name}</h2>
-                    <p className="sm:max-w-[60%] lg:max-w-full">Описание: {currentWebsite.description}</p>
-                    <p>
-                        Стек:&nbsp;
-                        {currentWebsite.technologies.map((el, i) =>
-                            i === currentWebsite.technologies.length - 1 ? (
-                                <span key={i}>{el}</span>
-                            ) : (
-                                <span key={i}>{el}, </span>
-                            )
-                        )}
-                    </p>
-                    <p>Срок: {currentWebsite.time}</p>
-                    <div className="flex gap-1">
-                        <p>Уровень сложности:&nbsp;</p>
-                        <div className="flex gap-1 items-center">
-                            {[1, 2, 3, 4, 5].map(el =>
-                                <svg className="w-5 h-5"
-                                     style={{fill: el <= currentWebsite.difficulty ? '#fcf403' : ''}} key={el}
-                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                     fill="currentColor" stroke="none" strokeWidth="1" strokeLinecap="round"
-                                     strokeLinejoin="round">
-                                    <path
-                                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>
-                                </svg>
+        <div className="py-5" id="sites">
+            <div
+                 className="flex justify-between w-full rounded-big p-2 flex-col-reverse items-center lg:items-start lg:flex-row lg:h-[450px] bg-light-background">
+                <div className="flex flex-col h-full justify-between lg:py-2 px-5 gap-2 min-h-[270px] w-full">
+                    <div className={`flex flex-col gap-1 duration-200 ${isFading ? 'opacity-0' : 'opacity-100'}`}>
+                        <h2 className="self-center !text-headline mb-1">{currentWebsite.name}</h2>
+                        <p className="sm:max-w-[60%] lg:max-w-full">Описание: {currentWebsite.description}</p>
+                        <p>
+                            Стек:&nbsp;
+                            {currentWebsite.technologies.map((el, i) =>
+                                i === currentWebsite.technologies.length - 1 ? (
+                                    <span key={i}>{el}</span>
+                                ) : (
+                                    <span key={i}>{el}, </span>
+                                )
                             )}
+                        </p>
+                        <p>Срок: {currentWebsite.time}</p>
+                        <div className="flex gap-1">
+                            <p>Уровень сложности:&nbsp;</p>
+                            <div className="flex gap-1 items-center">
+                                {[1, 2, 3, 4, 5].map(el =>
+                                    <svg className="w-5 h-5"
+                                         style={{fill: el <= currentWebsite.difficulty ? '#fcf403' : ''}} key={el}
+                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="currentColor" stroke="none" strokeWidth="1" strokeLinecap="round"
+                                         strokeLinejoin="round">
+                                        <path
+                                            d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>
+                                    </svg>
+                                )}
+                            </div>
                         </div>
+                        <a href={currentWebsite.url}
+                           className="text-blue-400 hover:text-blue-600 text-normal duration-200">{currentWebsite.url.slice(8)}</a>
                     </div>
-                    <a href={currentWebsite.url}
-                       className="text-blue-400 hover:text-blue-600 text-normal duration-200">{currentWebsite.url.slice(8)}</a>
-                </div>
-                <div className="flex justify-between text-mini md:text-normal w-[80%] lg:w-full self-center">
-                    <button
-                        className={`flex items-center ${currentIndex > 0 ? 'text-accent cursor-pointer' : 'text-darkest-accent'}`}
-                        onClick={previousSlide}>
+                    <div className="flex justify-between text-mini md:text-normal w-[80%] lg:w-full self-center">
+                        <button
+                            className={`flex items-center mr-auto text-accent cursor-pointer`}
+                            onClick={previousSlide}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-                                 strokeLinejoin="round"><path
-                                d="M6 8L2 12L6 16"/><path d="M2 12H22"/></svg>
+                                 strokeLinejoin="round">
+                                <path
+                                    d="M6 8L2 12L6 16"/>
+                                <path d="M2 12H22"/>
+                            </svg>
                             &nbsp;Предыдущий
-                    </button>
-                    <button
-                        className={`flex items-center ${currentIndex < websiteCards.length - 1 ? 'text-accent cursor-pointer' : 'text-darkest-accent'}`}
-                        onClick={nextSlide}>Следующий&nbsp;
+                        </button>
+                        <button
+                            className={`flex items-center ml-auto text-accent cursor-pointer`}
+                            onClick={nextSlide}>Следующий&nbsp;
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                                 strokeLinecap="round" strokeLinejoin="round"><path
-                                d="M18 8L22 12L18 16"/><path d="M2 12H22"/>
+                                 strokeLinecap="round" strokeLinejoin="round">
+                                <path
+                                    d="M18 8L22 12L18 16"/>
+                                <path d="M2 12H22"/>
                             </svg>
-                    </button>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div className={`overflow-x-hidden w-full h-full sm:w-[90%] md:w-[80%] py-2 lg:w-[60%] flex items-center shrink-0`}>
                 <div
-                    className={`px-2 lg:px-5 flex gap-4 lg:gap-10 justify-start duration-500 w-full`}
-                    style={{
-                        transform: `translateX(-${100 * currentIndex}%)`,
-                    }}
-                >
-                    {websiteCards.map((el, i) => (
-                        <div
-                            key={el.id}
-                            className="w-full shrink-0 rounded-mini overflow-hidden neoMiniShadow"
-                        >
-                            <a href={currentWebsite.url} target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    width={800}
-                                    height={350}
-                                    src={websiteCards[i].img}
-                                    alt={el.name}
-                                />
-                            </a>
-                        </div>
-                    ))}
+                    className={`overflow-x-hidden w-full h-full sm:w-[90%] md:w-[80%] py-2 lg:w-[60%] flex items-center shrink-0`}>
+                    <div
+                        className={`px-2 lg:px-5 flex gap-4 lg:gap-10 justify-start duration-500 w-full`}
+                        style={{
+                            transform: `translateX(-${100 * currentIndex}%)`,
+                        }}
+                    >
+                        {websiteCards.map((el, i) => (
+                            <div
+                                key={el.id}
+                                className="w-full shrink-0 rounded-mini overflow-hidden neoMiniShadow"
+                            >
+                                <a href={currentWebsite.url} target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        width={800}
+                                        height={350}
+                                        src={websiteCards[i].img}
+                                        alt={el.name}
+                                    />
+                                </a>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
