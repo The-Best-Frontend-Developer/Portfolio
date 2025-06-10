@@ -6,7 +6,7 @@ const TagWrapper = ({children, tag, direction}: { children?: React.ReactNode, ta
             <span className="text-mini whitespace-nowrap leading-none">
                 &lt; {tag} &gt;
             </span>
-            <div className={`${direction === 'col' ? 'pl-10' : ''}`}>{children}</div>
+            <div className={`text-text ${direction === 'col' ? 'pl-10' : ''}`}>{children}</div>
             <span className="text-mini whitespace-nowrap leading-none">
                 &lt; /{tag} &gt;
             </span>

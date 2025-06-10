@@ -29,12 +29,61 @@
 }
 
 @theme {
-    --color-background: #0D0D0D;
+    /*--color-background: #0D0D0D;*/
+    /*--color-light-background: #1A1A1A;*/
+    /*--color-accent: #00FFD1;*/
+    /*--color-dark-accent: #009682;*/
+    /*--color-darkest-accent: #004239;*/
+    /*--color-text: #EAEAEA;*/
+
+    /*--color-background:       #0D0D0D;*/
+    /*--color-light-background: #1A1A1A;*/
+    /*--color-accent:           #FF4C4C;  !* Ярко-красный *!*/
+    /*--color-dark-accent:      #B00020;  !* Тёмно-красный *!*/
+    /*--color-darkest-accent:   #470000;  !* Почти бордовый *!*/
+    /*--color-text:             #EAEAEA;*/
+
+    --color-background:       #0D0D0D;
     --color-light-background: #1A1A1A;
-    --color-accent: #00FFD1;
-    --color-dark-accent: #009682;
-    --color-darkest-accent: #004239;
-    --color-text: #EAEAEA;
+    --color-accent:           #00FF88;  /* Неоново-зелёный */
+    --color-dark-accent:      #00995A;  /* Тёмно-зелёный */
+    --color-darkest-accent:   #006b47;  /* Очень тёмный зелёный */
+    --color-text:             #EAEAEA;
+
+    /*--color-background:       #0D0D0D;*/
+    /*--color-light-background: #1A1A1A;*/
+    /*--color-accent:           #FF66B2;  !* Ярко-розовый *!*/
+    /*--color-dark-accent:      #C2185B;  !* Малиновый *!*/
+    /*--color-darkest-accent:   #4A0C24;  !* Тёмный винный *!*/
+    /*--color-text:             #EAEAEA;*/
+
+    /*--color-background:       #0D0D0D;*/
+    /*--color-light-background: #1A1A1A;*/
+    /*--color-accent:           #FFE600;  !* Ярко-жёлтый *!*/
+    /*--color-dark-accent:      #CCB200;  !* Тёмно-жёлтый *!*/
+    /*--color-darkest-accent:   #665C00;  !* Почти хаки *!*/
+    /*--color-text:             #EAEAEA;*/
+
+    /*--color-background:       #0D0D0D;*/
+    /*--color-light-background: #1A1A1A;*/
+    /*--color-accent:           #C084FC;  !* Светло-фиолетовый *!*/
+    /*--color-dark-accent:      #7C3AED;  !* Глубокий фиолетовый *!*/
+    /*--color-darkest-accent:   #3D1C5F;  !* Почти ночной фиолет *!*/
+    /*--color-text:             #EAEAEA;*/
+
+    /*--color-background:       #0D0D0D;*/
+    /*--color-light-background: #1A1A1A;*/
+    /*--color-accent:           #00BFFF;  !* Электрик-блю *!*/
+    /*--color-dark-accent:      #0077B6;  !* Глубокий синий *!*/
+    /*--color-darkest-accent:   #002744;  !* Темнейшая синяя глубина *!*/
+    /*--color-text:             #EAEAEA;*/
+
+    /*--color-background:       #0D0D0D;*/
+    /*--color-light-background: #1A1A1A;*/
+    /*--color-accent:           #FFA500;  !* Классический оранжевый *!*/
+    /*--color-dark-accent:      #CC8400;  !* Тёмно-оранжевый *!*/
+    /*--color-darkest-accent:   #664000;  !* Почти коричневый *!*/
+    /*--color-text:             #EAEAEA;*/
 
     --text-mini: var(--text-mini-size);
     --text-normal: var(--text-normal-size);

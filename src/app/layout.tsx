@@ -42,7 +42,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${neucha.variable} ${geist_mono.variable}`}>
         <body
-            className={`text-text font-main bg-background antialiased`}
+            className={`text-text tracking-wider font-main bg-background antialiased`}
         >
         {children}
         </body>
